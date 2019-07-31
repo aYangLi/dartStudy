@@ -47,5 +47,36 @@ void main(List<String> args) {
 //差别如下：
 // const 定义的是编译时常量，只能用编译时常量来初始化
 // final 定义的常量可以用变量来初始化
+/*
+* var、final 等在左边定义避难量的饿时候，并不关心右边是不是常量
+* 但是如果右边用了 const，那么不管左边如何，右边都必须是常量；
+* */
 
+// 可以在 字符串中使用过表达式，用法是这样的：${expression} 。 如果表达式是一个比赛服，可以省略{}。如果表达式的结果为一个对象，则 dart 会调用对象的 toString() 函数来获取一个字符串。
+  var s = 'string interpolation';
+
+  assert('Dart has $s, which is very handy.' ==
+      'Dart has string interpolation, ' +
+          'which is very handy.');
+  assert('That deserves all caps. ' +
+      '${s.toUpperCase()} is very handy!' ==
+      'That deserves all caps. ' +
+          'STRING INTERPOLATION is very handy!');
+//  通过提供一个 r 前缀可以创建一个‘原始 raw’ 字符串：
+  var s1 = r"in a raw string, even \n isn't special";
+  print('s1=$s1');
+  var s2 = "in a raw string, even \n isn't special";
+  print('s1=$s2');
+
+  const aConstList = const [1, 2, 3];
+  print(aConstList);
+
+  var clapping = '\u{1f44f}';
+  print(clapping);
+  print(clapping.codeUnits);
+  print(clapping.runes.toList());
+
+  Runes input = new Runes(
+      '\u2665  \u{1f605}  \u{1f60e}  \u{1f47b}  \u{1f596}  \u{1f44d}');
+  print(new String.fromCharCodes(input));
 }
