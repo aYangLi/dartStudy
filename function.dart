@@ -59,7 +59,19 @@ void main() {
   void enableFlags({bool bold = false, bool hidden = false}) {
     print(bold);
     print(hidden);
-  };
+  }
+
+  ;
 
   enableFlags(bold: true);
+
+//  Anonymous functions（匿名方法）
+//  下面的代码定义了一个参数为i （该参数没有指定类型）的匿名函数。 list 中的每个元素都会调用这个函数来 打印出来，同时来计算了每个元素在 list 中的索引位置。
+  var list = ['apple', 'oranges', 'grapes', 'bananas', 'plums'];
+  list.forEach((i) {
+    print(list.indexOf(i).toString() + ':' + i);
+  });
+  list.forEach((i) => print(list.indexOf(i).toString() + ': ' + i));
+//  Return values（返回值）
+//  所有的函数都返回一个值。如果没有指定返回值，则 默认把语句 return null; 作为函数的最后一个语句执行。
 }
